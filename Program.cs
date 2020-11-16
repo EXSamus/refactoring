@@ -30,13 +30,14 @@ namespace refactoring
             initMultiThread(classement, race);      
             startMultiThread();
             readMemory(classement, race);
-            affichage.affichage(classement);
+            //affichage.affichage(classement);
         }
         public static void initClassement(int[][] classement)
         {
             for (int i = 0; i < 3; i++)
             {
-                classement[i] = new int[] { i, 0, 0, 0, 0, 2, 0, 0 };
+
+                classement[i] = new int[] { i, 0, 0, 0, 0, 2, 0, 0,listVoiture[i] };
             }
         }
         public static void initMultiThread(int[][] classement, Mutex  sem)
@@ -46,7 +47,8 @@ namespace refactoring
             for (int i = 0; i < 3; i++)
             {
                 int temp = i;
-                thr[temp] = new Thread(() => circuit.simu(temp, classement, race));
+                int idVoiture = classement[i][8];
+                thr[temp] = new Thread(() => circuit.simu(temp, idVoiture, classement, race));
                 thr[temp].Name = "Voiture " + temp;
             }
         }

@@ -6,6 +6,7 @@ using System.Linq;
 namespace affichage{
     public class Affichage{
 
+
         public void header(){
             Console.WriteLine("|-------------|-------|-------|-------|--------|------|------------|");
             Console.WriteLine("| Période     |  S1   |  S2   |  S3   | status | tour | temps-tour |");
@@ -89,5 +90,18 @@ namespace affichage{
             return source.Select(s => s.ToArray()).ToArray();
         }
     }
-    
+    public class Data{
+        public static int[][] CopyArray(int[][] source)
+        {
+            return source.Select(s => s.ToArray()).ToArray();
+        }
+
+        public static int[][] getSortData(int[][] classement){
+            int[][] temp = CopyArray(classement);           
+            Array.Sort(temp,  new Comparison<int[]>( 
+                (x,y) => { return x[6] < y[6] ? -1 : (x[6] > y[6] ? 1 : 0); }
+            ));
+            return temp;
+        }
+    } 
 }

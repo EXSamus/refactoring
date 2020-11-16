@@ -13,7 +13,7 @@ namespace voiture
     //Objet Voiture
     public class Voiture
     {
-        public int Id, Status, Ready;
+        public int Id, Status, Ready, idVoiture;
         public int tempSecteur1 { get; set; }
         public int tempSecteur2 { get; set; }
         public int tempSecteur3 { get; set; }
@@ -34,12 +34,13 @@ namespace voiture
         public bool crash { get; set; }
         public int passageAuStand { get; set; }
 
-
-        public Voiture(int id, int ready, int status)
+        
+        public Voiture(int id, int IDVoiture, int ready, int status)
         {
 
             Id = id;		//numero de la voiture
 
+            idVoiture = IDVoiture;
             /*
             status == 0 => le processus est termine
             status == 1 => la voiture est au stand
