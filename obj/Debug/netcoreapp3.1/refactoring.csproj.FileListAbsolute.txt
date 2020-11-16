@@ -1,0 +1,13 @@
+E:\Bureau\Ephec_T3\refactoring\bin\Debug\netcoreapp3.1\refactoring.exe
+E:\Bureau\Ephec_T3\refactoring\bin\Debug\netcoreapp3.1\refactoring.deps.json
+E:\Bureau\Ephec_T3\refactoring\bin\Debug\netcoreapp3.1\refactoring.runtimeconfig.json
+E:\Bureau\Ephec_T3\refactoring\bin\Debug\netcoreapp3.1\refactoring.runtimeconfig.dev.json
+E:\Bureau\Ephec_T3\refactoring\bin\Debug\netcoreapp3.1\refactoring.dll
+E:\Bureau\Ephec_T3\refactoring\bin\Debug\netcoreapp3.1\refactoring.pdb
+E:\Bureau\Ephec_T3\refactoring\obj\Debug\netcoreapp3.1\refactoring.csprojAssemblyReference.cache
+E:\Bureau\Ephec_T3\refactoring\obj\Debug\netcoreapp3.1\refactoring.AssemblyInfoInputs.cache
+E:\Bureau\Ephec_T3\refactoring\obj\Debug\netcoreapp3.1\refactoring.AssemblyInfo.cs
+E:\Bureau\Ephec_T3\refactoring\obj\Debug\netcoreapp3.1\refactoring.csproj.CoreCompileInputs.cache
+E:\Bureau\Ephec_T3\refactoring\obj\Debug\netcoreapp3.1\refactoring.dll
+E:\Bureau\Ephec_T3\refactoring\obj\Debug\netcoreapp3.1\refactoring.pdb
+E:\Bureau\Ephec_T3\refactoring\obj\Debug\netcoreapp3.1\refactoring.genruntimeconfig.cache
