@@ -1,6 +1,6 @@
 using System;
 
-namespace secteur
+namespace refactoring
 {
     public class Secteur{
 

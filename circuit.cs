@@ -1,14 +1,11 @@
 using System;
 using System.Threading;
-using voiture;
-using secteur;
 using System.Collections.Concurrent;
 using refactoring;
-namespace circuit
+namespace refactoring
 {
     unsafe public class Circuit
     {
-        Program main = new Program();
         Secteur secteur = new Secteur();
         Mutex sem = new Mutex();
         public void simu(int id, int idVoiture, int[][] classement, Mutex sem)
@@ -22,8 +19,7 @@ namespace circuit
             Console.WriteLine("initialisation de la voiture " + id);
             Voiture voiture = new Voiture(id, idVoiture, 2, 0);
             Console.WriteLine("lancement de la course");
-            essaiLibreQuali(500, voiture, sem, classement);
-            //Course(3, voiture, sem, classement);
+            Course(7, voiture, sem, classement);
         }
 
         int tour(Voiture maVoiture, int numeroTour, Mutex sem, int[][] classement)
@@ -55,7 +51,6 @@ namespace circuit
                 }
                 if ((i % 2) == 0)
                 {                   //si il passe dans le secteur 2
-                    //Console.WriteLine("\nsecteur : 2");
                     maVoiture.tempSecteur2 = s;
 
                 }
@@ -95,9 +90,6 @@ namespace circuit
             maVoiture.tours += 1;
             do
             {
-
-                //Console.WriteLine("\ntour : " + tours);
-                //effectue un tour puis incremente le temps total que la voiture aura passe en course
                 temps1 = tour(maVoiture, maVoiture.tours, sem, classement);
                 temps2 += temps1;
 
@@ -107,10 +99,6 @@ namespace circuit
                     return;
                 }
                 maVoiture.tours += 1;
-
-
-
-
 
                 //verifie si la voiture a fait un meilleur temps que ce qu'elle avait precedemment fait
                 if (maVoiture.meilleurTemps > temps1 || maVoiture.meilleurTemps == 0)
@@ -122,7 +110,6 @@ namespace circuit
                     }
                 }
 
-                //sem.Release();
                 Console.WriteLine("\ntemps du tour: " + temps1 +"| Voiture : "+ maVoiture.idVoiture);
                 if (maVoiture.tours > 2500)
                 {
@@ -204,16 +191,14 @@ namespace circuit
                 {
                     maVoiture.tempSecteur1 = s;   //si il passe dans le secteur 1
                 }
-                //sem.WaitOne();
-                //maVoiture.tempsTotal += s;
-                //maVoiture.changeOrdre = true;
+                maVoiture.changeOrdre = true;
                 //sem.Release();
                 total += s;                       //ajout au temps total de la voiture dans le circuit
                 i++;
             }
             maVoiture.tempsTotal += total;
             int[] tabTemp = { maVoiture.Id, maVoiture.tours, maVoiture.tempSecteur1, maVoiture.tempSecteur2,
-                            maVoiture.tempSecteur3, maVoiture.Status, maVoiture.tempsTotal, maVoiture.meilleurTemps};
+                            maVoiture.tempSecteur3, maVoiture.Status, maVoiture.tempsTotal, maVoiture.meilleurTemps, maVoiture.idVoiture};
             sem.WaitOne();
             classement[maVoiture.Id] = tabTemp;
             sem.ReleaseMutex();
@@ -274,7 +259,7 @@ namespace circuit
                 {
                     classement[maVoiture.Id][5] = 0;
                 }
-            } while (maVoiture.tours < tours && temps1 != 0);
+            } while (maVoiture.tours < tours && temps1 != 0 || maVoiture.changeOrdre);
             maVoiture.Ready = -1;
             classement[maVoiture.Id][5] = 0;
         }

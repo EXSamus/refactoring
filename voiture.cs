@@ -7,7 +7,7 @@ using System;
 *
 */
 
-namespace voiture
+namespace refactoring
 {
     
     //Objet Voiture

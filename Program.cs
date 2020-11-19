@@ -1,12 +1,4 @@
-﻿using System;
-using System.Numerics;
-using circuit;
-using System.Threading;
-using voiture;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Collections.Concurrent;
-using System.Collections; 
+﻿using System.Threading;
 using affichage;
 namespace refactoring
 {
@@ -15,22 +7,17 @@ namespace refactoring
 
         public static Affichage affichage = new Affichage();
         public static readonly int[] listVoiture = { 30, 16, 15, 7, 3, 40, 56, 22, 29, 10 };
-        //doWorkCallback callback = new doWorkCallback(dataCallBack);
-
         public static Thread[] thr = new Thread[listVoiture.Length];
-        //public static int[] classement = new int[listVoiture.Length][];
         public static Mutex race;
         static void Main(string[] args)
         {
             race = new Mutex ();
             int[][] classement = new int[3][];
 
-            //List<int[]> classement = new List<int[]>();
             initClassement(classement);
             initMultiThread(classement, race);      
             startMultiThread();
             readMemory(classement, race);
-            //affichage.affichage(classement);
         }
         public static void initClassement(int[][] classement)
         {
@@ -77,8 +64,7 @@ namespace refactoring
                     {
                         counter++;
                     }
-                    //à Modifier
-                    if (counter == 3)
+                    if (counter == classement.Length)
                     {
                         return false;
                     }

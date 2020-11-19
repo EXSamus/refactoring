@@ -1,12 +1,7 @@
 using System;
-using voiture;
-using System.Threading;
-using System.Collections;
 using System.Linq;
 namespace affichage{
     public class Affichage{
-
-
         public void header(){
             Console.WriteLine("|-------------|-------|-------|-------|--------|------|------------|");
             Console.WriteLine("| Période     |  S1   |  S2   |  S3   | status | tour | temps-tour |");
