@@ -1,9 +1,7 @@
 using System;
 /*
 *
-* Ce fichier .c est compile puis lance lorsqu'un processus fils est cree
-* il fait appel a des headers pour utiliser les fonctions de voitures, du circuits, ...
-* il simule une course selon les parametres entree avec une voiture
+* Classe pour l'objet Voiture
 *
 */
 
@@ -23,13 +21,13 @@ namespace refactoring
 
         public int tours { get; set; }
         /* permet de savoir si le temps totale de la voiture a ete mis à jour => car necessitera une reorganisation du classement
-        *   changerOrdre == 0 (FALSE) le temps n'a pas ete mis a jour
-        *   changerOrdre == 1 (TRUE) le temps a ete mis à jour
+        *   changerOrdre == false le temps n'a pas ete mis a jour
+        *   changerOrdre == true le temps a ete mis à jour
         */
         public bool changeOrdre { get; set; }
         /* permet de savoir si la voiture est crashee
-        *   crash == 0 (FALSE) la voiture est toujours en course
-        *   crash == 1 (TRUE) la voiture est OUT
+        *   crash == false la voiture est toujours en course
+        *   crash == true la voiture est OUT
         */
         public bool crash { get; set; }
         public int passageAuStand { get; set; }
@@ -38,7 +36,7 @@ namespace refactoring
         public Voiture(int id, int IDVoiture, int ready, int status)
         {
 
-            Id = id;		//numero de la voiture
+            Id = id;//numero de la voiture
 
             idVoiture = IDVoiture;
             /*

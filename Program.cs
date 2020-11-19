@@ -6,7 +6,7 @@ namespace refactoring
     {
 
         public static Affichage affichage = new Affichage();
-        public static readonly int[] listVoiture = { 30, 16, 15, 7, 3, 40, 56, 22, 29, 10 };
+        public static readonly int[] listVoiture = { 30, 16, 15, 7, 3, 40, 56, 22, 29, 10 };// liste de voiture
         public static Thread[] thr = new Thread[listVoiture.Length];
         public static Mutex race;
         static void Main(string[] args)

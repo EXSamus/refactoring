@@ -62,7 +62,6 @@ namespace refactoring
                     maVoiture.passageAuStand = 1;
                     maVoiture.tours += 1;
                     Thread.Sleep(s * 10);                  // endormir le processus pendant s*10 milliseconde
-                                                           //Console.WriteLine("\npause secteur : 3");
 
                     maVoiture.Status = 2;
                     maVoiture.tempSecteur3 = s;
@@ -158,7 +157,6 @@ namespace refactoring
 
                 if (s == 0)
                 {                 //test si il y a un crash
-                    //sem.WaitOne();
                     maVoiture.Status = 0;
                     maVoiture.crash = true;
                     maVoiture.meilleurTemps = int.MaxValue;
@@ -181,7 +179,6 @@ namespace refactoring
                         maVoiture.passageAuStand = 1;
                         maVoiture.tours += 1;
                         Thread.Sleep(s * 10);                  // endormir le processus pendant s*10 milliseconde
-                                                               //Console.WriteLine("\npause secteur : 3");
 
                     }
                     maVoiture.Status = 2;
@@ -192,7 +189,6 @@ namespace refactoring
                     maVoiture.tempSecteur1 = s;   //si il passe dans le secteur 1
                 }
                 maVoiture.changeOrdre = true;
-                //sem.Release();
                 total += s;                       //ajout au temps total de la voiture dans le circuit
                 i++;
             }
@@ -210,8 +206,7 @@ namespace refactoring
         * @param int tours          le nombre de tours que comporte la course
         * @param voiture* mavoiture pointeur vers l'emplacement memoire de la voiture
         *                           simulee par le processus
-        * @param sem_t* sem         semaphore de la voiture permettant de garder les
-        *                           zones d'ecriture a risque
+        * @param Mutex sem mutex qui permet de synchroniser les données
         *
         */
         public void Course(int tours, Voiture maVoiture, Mutex sem, int[][] classement)
@@ -266,8 +261,7 @@ namespace refactoring
         /** remets les secteurs de la voiture a zero.  Cela permet de simuler la fin d'un tour
         *   sur le circuit
         *
-        * @param voiture* mavoiture pointeur vers l'emplacement memoire de la voiture
-        *                           simulee par le processus
+        * @param Voiture maVoiture remet à zero les temps de secteur de la voiture
         *
         */
         void refreshSecteurs(Voiture maVoiture)

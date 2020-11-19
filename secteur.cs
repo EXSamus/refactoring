@@ -40,10 +40,10 @@ namespace refactoring
 
         /** permet de savoir si la voiture c'est crashee
         *
-        * @param int chance   la probabilite d'avoir un crash
-        * return true(1) si il est plus petit que 49 sinon false(0)
+        * @param int chance la probabilite d'avoir un crash
+        * return true si il est plus petit que 49 sinon false
         *
-        * @return int retourne true(1) si il y a crash, sinon false(0)
+        * @return bool retourne true si il y a crash, sinon false
         */
         public bool crash(int chance){//methode pour determiner si il y a un crash
             if(my_rand(1,1000000) <= chance){
@@ -56,7 +56,7 @@ namespace refactoring
         *
         * @param int chance   la probabilite d'avoir un crash
         *
-        * @return int retourne true(1) si il y a crash, sinon false(0)
+        * @return bool retourne true si il y a crash, sinon false
         *
         */
         public bool stand(){//passage au stand
