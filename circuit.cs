@@ -1,7 +1,5 @@
 using System;
 using System.Threading;
-using System.Collections.Concurrent;
-using refactoring;
 namespace refactoring
 {
     unsafe public class Circuit
@@ -217,7 +215,6 @@ namespace refactoring
             maVoiture.tours += 1;
             do
             {
-
                 //Console.WriteLine("\ntour : " + tours);
                 //effectue un tour puis incremente le temps total que la voiture aura passe en course
                 temps1 = tourCourse(maVoiture, maVoiture.tours, tours, sem, classement);
@@ -225,18 +222,11 @@ namespace refactoring
 
                 if (temps1 == 0)
                 {
-                    //sem.WaitOne();
                     maVoiture.Ready = -1;
-                    //sem.Release();
                     return;
                 }
 
-                //sem.WaitOne();
                 maVoiture.tours += 1;
-
-
-
-
 
                 //verifie si la voiture a fait un meilleur temps que ce qu'elle avait precedemment fait
                 if (maVoiture.meilleurTemps > temps1 || maVoiture.meilleurTemps == 0)
@@ -247,8 +237,6 @@ namespace refactoring
                         maVoiture.changeOrdre = true;          //indique que le temps de la voiture a changeOrdre
                     }
                 }
-
-                //sem.Release();
                 //Console.WriteLine("\ntemps du tour: " + temps1 +"| Voiture : "+ maVoiture.Id);
                 if (maVoiture.tours > tours)
                 {

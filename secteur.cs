@@ -37,7 +37,6 @@ namespace refactoring
             }
             return temp;//si il y a un crash
         }
-
         /** permet de savoir si la voiture c'est crashee
         *
         * @param int chance la probabilite d'avoir un crash
