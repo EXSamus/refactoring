@@ -23,7 +23,7 @@ namespace refactoring
         *
         * @return int le nombre aleatoire
         */
-        int my_rand(int min, int max){
+        public int my_rand(int min, int max){
             int c = rand.Next(max-min+1)+min;//creation du nombre aleatoire
             return c;
         }

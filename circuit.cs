@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 namespace refactoring
 {
-    unsafe public class Circuit
+    public class Circuit
     {
         Secteur secteur = new Secteur();
         Mutex sem = new Mutex();

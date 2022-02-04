@@ -11,11 +11,11 @@ namespace refactoring
         public static Mutex race;
         static void Main(string[] args)
         {
-            race = new Mutex ();
+            race = new Mutex();
             int[][] classement = new int[3][];
 
             initClassement(classement);
-            initMultiThread(classement, race);      
+            initMultiThread(classement, race);
             startMultiThread();
             readMemory(classement, race);
         }
@@ -24,10 +24,10 @@ namespace refactoring
             for (int i = 0; i < 3; i++)
             {
 
-                classement[i] = new int[] { i, 0, 0, 0, 0, 2, 0, 0,listVoiture[i] };
+                classement[i] = new int[] { i, 0, 0, 0, 0, 2, 0, 0, listVoiture[i] };
             }
         }
-        public static void initMultiThread(int[][] classement, Mutex  sem)
+        public static void initMultiThread(int[][] classement, Mutex sem)
         {
             Circuit circuit = new Circuit();
 
@@ -53,7 +53,7 @@ namespace refactoring
         /**********************************  fonctions auxiliaires  ******************************************/
         public static bool readMemory(int[][] classement, Mutex sem)
         {
-            
+
             bool check = true;
             while (check)
             {
@@ -73,7 +73,7 @@ namespace refactoring
                 sem.WaitOne();
                 affichage.affichage(classement);
                 sem.ReleaseMutex();
-                Thread.Sleep(2500);  
+                Thread.Sleep(2500);
             };
             return check;
         }
