@@ -3,3 +3,5 @@
 bin/*
 obj/*
 Refactoring.sln
+RefactoringTests/bin/*
+RefactoringTests/obj/*

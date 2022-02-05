@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Bureau\\Ephec_T3\\refactoring\\refactoring.csproj": {}
+    "E:\\Bureau\\Ephec_T3\\refactoring\\Refactoring.csproj": {}
   },
   "projects": {
-    "E:\\Bureau\\Ephec_T3\\refactoring\\refactoring.csproj": {
+    "E:\\Bureau\\Ephec_T3\\refactoring\\Refactoring.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Bureau\\Ephec_T3\\refactoring\\refactoring.csproj",
-        "projectName": "refactoring",
-        "projectPath": "E:\\Bureau\\Ephec_T3\\refactoring\\refactoring.csproj",
+        "projectUniqueName": "E:\\Bureau\\Ephec_T3\\refactoring\\Refactoring.csproj",
+        "projectName": "Refactoring",
+        "projectPath": "E:\\Bureau\\Ephec_T3\\refactoring\\Refactoring.csproj",
         "packagesPath": "C:\\Users\\jetfi\\.nuget\\packages\\",
         "outputPath": "E:\\Bureau\\Ephec_T3\\refactoring\\obj\\",
         "projectStyle": "PackageReference",
@@ -39,6 +39,20 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.0.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.2, )"
+            },
+            "Nunit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
